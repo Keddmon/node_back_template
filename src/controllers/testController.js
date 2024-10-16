@@ -9,7 +9,7 @@
 // Model: 데이터베이스와 직접 상호작용하는 역할 (본 템플릿에선 생략)
 
 /* ===== 서비스에서 함수 가져오기 ===== */
-import { testService } from '../services/testService';
+import { testService } from '../service/testService';
 
 /* ===== 함수 작성 ===== */
 export const getTest = async (req, res) => {

@@ -27,9 +27,18 @@ import path from 'path'; // 파일과 디렉토리 경로를 쉽게 다룰 수 �
 import cookieParser from 'cookie-parser'; // 웹 사이트에서 쿠키를 쉽게 다룰 수 있게 해주는 도구
 import logger from 'morgan';
 
+
+
+
+
 /* ===== 라우터 설정 ===== */
 // 라우터는 특정 주소로 들어오는 요청을 처리하는 코드를 모아놓은 곳
 import testRouter from './routes';
+import userRouter from './routes';
+
+
+
+
 
 /* ===== express 설정을 위한 변수 선언 ===== */
 // app이라는 변수에 express를 사용해 서버를 만들 준비를 함
@@ -52,10 +61,17 @@ app.use(cookieParser()); // 쿠키 데이터를 처리
 app.use(express.static(path.join(__dirname, 'public'))); // 'public' 폴더의 파일을 정적으로 제공
 app.use(cors()); // 다른 도메인에서 오는 요청 허용
 
+
+
+
+
 /* ===== 라우터 연결 ===== */
 // '/test'로 들어오는 요청은 testRouter에서 처리하고,
 // '/user'로 들어오는 요청은 userRouter에서 처리함
-app.use('/test', testRouter);
+app.use('/', testRouter);
+app.use('/', userRouter);
+
+
 
 
 
